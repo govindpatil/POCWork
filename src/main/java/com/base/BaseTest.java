@@ -45,7 +45,7 @@ public class BaseTest {
 
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
-		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 		return driver;
 
 	}
@@ -59,7 +59,7 @@ public class BaseTest {
 				prop.load(fis);
 				prop.get(key);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
@@ -83,12 +83,12 @@ public class BaseTest {
 				String username = sheet.getRow(i + 2).getCell(k).toString();
 				String password = sheet.getRow(i + 2).getCell(k + 1).toString();
 
-//				System.out.println(username);
-//				System.out.println(password);
+				// System.out.println(username);
+				// System.out.println(password);
 				driver.navigate().refresh();
 				driver.findElement(
 						By.xpath("//span[@id='nav-link-accountList-nav-line-1' and contains(text(),'Hello, Sign in')]"))
-						.click();
+				.click();
 				driver.findElement(By.xpath("//input[@type='email']")).sendKeys(username);
 				driver.findElement(By.id("continue")).click();
 				driver.findElement(By.id("ap_password")).sendKeys(password);
@@ -109,19 +109,14 @@ public class BaseTest {
 
 		for (int i = 0; i < 1; i++) {
 
-			// for (int k = 0; k < sheet.getRow(i).getLastCellNum(); k++) {
 			String DeviceName = sheet.getRow(i + 2).getCell(k).toString();
-			// String Brand = sheet.getRow(i + 2).getCell(k + 1).toString();
-			// String Model = sheet.getRow(i + 2).getCell(k + 2).toString();
-			// String IMEI = sheet.getRow(i + 2).getCell(k + 2).toString();
 
 			System.out.println(DeviceName);
 			driver.findElement(By.id("twotabsearchtextbox")).sendKeys(DeviceName);
 			driver.findElement(By.xpath("//input[@id='nav-search-submit-button']")).click();
 			driver.findElement(By.xpath(
 					"//span[@class='a-size-medium a-color-base a-text-normal' and contains(text(),'OnePlus 9R')]"))
-					.click();
-			
+			.click();
 
 		}
 	}
@@ -129,7 +124,7 @@ public class BaseTest {
 	public void selectExchange() throws IOException, InterruptedException {
 
 		ArrayList<String> nextTab = new ArrayList<String>(driver.getWindowHandles());
-		// switch to new tab
+
 		driver.switchTo().window(nextTab.get(1));
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -185,14 +180,14 @@ public class BaseTest {
 		driver.findElement(By.xpath("//span[@id='buyBackApplyButton-announce' and contains(text(),'Verify')]")).click();
 
 		driver.findElement(By.xpath("//span[@id='applyBuyBack-announce' and contains(text(),'Apply Exchange')]"))
-				.click();
+		.click();
 
 	}
 
 	public void buy() {
 
 		driver.findElement(By.xpath("//span[@id='buyBackBuyNowButton-announce' and contains(text(),'Buy Now with')]"))
-				.click();
+		.click();
 		String testText = driver
 				.findElement(By.xpath("//span[@id='buyBackBuyNowButton-announce' and contains(text(),'Buy Now with')]"))
 				.getText();
@@ -205,7 +200,7 @@ public class BaseTest {
 	}
 
 	public void navigateToLoginAndSecurity() {
-		// System.out.println("navigateToLoginAndSecurity selected");
+
 		driver.findElement(By.linkText("Your Account")).click();
 
 		String url = driver.getCurrentUrl();
@@ -217,25 +212,11 @@ public class BaseTest {
 
 		driver.findElement(By.xpath(
 				"//*[@class='a-spacing-none ya-card__heading--rich a-text-normal' and contains(text(),'Login & security')]"))
-				.click();
+		.click();
 
 	}
-	
-public void logout()
-{
-	System.out.println("logout code yet to write");
-}
-}
 
-//	public static void main(String[] args) throws IOException, InterruptedException
-//
-//	{
-//		BaseTest bt = new BaseTest();
-//		bt.initProperty("url");
-//		bt.initbrowser("chrome");
-//		// bt.login();
-//		// bt.selectExchange();
-//		bt.selectHamburgerMenu();
-//		bt.navigateToLoginAndSecurity();
-//	}
-//}
+	public void logout() {
+		System.out.println("logout code yet to write");
+	}
+}
