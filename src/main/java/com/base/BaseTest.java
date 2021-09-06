@@ -54,7 +54,7 @@ public class BaseTest {
 		prop = new Properties();
 		try {
 			FileInputStream fis = new FileInputStream(
-					"C:\\Users\\RamRaksha\\eclipse-workspace\\bhavani\\src\\main\\java\\properties\\config.properties");
+					"C:\\Users\\RamRaksha\\eclipse-workspace\\KWDPoC\\src\\main\\java\\properties\\config.properties");
 			try {
 				prop.load(fis);
 				prop.get(key);

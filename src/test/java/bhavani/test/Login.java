@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import com.base.BaseTest;
-import com.readExcel.Bhavani;
+import com.readExcel.KeyWordEngine;
 
 public class Login {
 
@@ -18,7 +18,7 @@ public class Login {
 
 		try {
 
-			Bhavani.testNG("Test Script");
+			KeyWordEngine.testNG("Test Script");
 
 		} catch (IOException e) {
 
